@@ -1,0 +1,111 @@
+﻿table {
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+}
+
+th {
+    background-color: deepskyblue;
+}
+
+td {
+    background-color: lightgray
+}
+
+#formdivconsumer {
+    display: unset;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+    #formdivconsumer label, button, input {
+        margin: 10px;
+        padding: 7px;
+        background-color: deepskyblue;
+    }
+
+#updateformdivconsumer {
+    display: none;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+    #updateformdivconsumer label, button, input {
+        margin: 10px;
+        padding: 7px;
+        background-color: deepskyblue;
+    }
+
+#formdivorder {
+    display: unset;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+#updateformdivorder {
+    display: none;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+#formdivorder label, button, input {
+    margin: 10px;
+    padding: 7px;
+    background-color: deepskyblue;
+}
+
+#updateformdivorder label, button, input {
+    margin: 10px;
+    padding: 7px;
+    background-color: deepskyblue;
+}
+
+#formdivrestaurant {
+    display: unset;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+    #formdivrestaurant label, button, input {
+        margin: 10px;
+        padding: 7px;
+        background-color: deepskyblue;
+    }
+
+#updateformdivrestaurant {
+    display: none;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+    #updateformdivrestaurant label, button, input {
+        margin: 10px;
+        padding: 7px;
+        background-color: deepskyblue;
+    }
+
+#formdivconsumer label {
+    font-weight: bolder;
+}
+
+#formdivorder label {
+    font-weight: bolder;
+}
+
+#formdivrestaurant label {
+    font-weight: bolder;
+}
+
+table button {
+    padding: 2px;
+}

@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Delivery Service UI</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>Consumer Table</h1>
+
+    <div id="formdivconsumer">
+        <label>Consumer Name</label>
+        <input type="text" , id="consumerName" />
+        <label>Consumer Address</label>
+        <input type="text" , id="consumerAddress" />
+        <button type="button" onclick="createConsumer()">Add consumer</button>
+        <label>Consumer ID</label>
+        <input type="text" , id="consumerId" />
+        <label id="mostoftenorderedfood"></label>
+        <button type="button" onclick="getMostOftenOrderedFood()">Most often ordered food</button>
+        <label id="mostordersfromrestaurant"></label>
+        <button type="button" onclick="getMostOrdersFromRestaurant()">Most Orders From Restaurant</button>
+    </div>
+
+    <div id="updateformdivconsumer">
+        <label>Consumer Name</label>
+        <input type="text" , id="consumernametoupdate" />
+        <label>Consumer Address</label>
+        <input type="text", id="consumeraddresstoupdate"/>
+        <button type="button" onclick="updateConsumer()">Update consumer Name</button>
+        <button type="button" onclick="updateConsumerAddress()">Update consumer Address</button>
+    </div>
+
+    
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name/Address</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="resultareaconsumer">
+        </tbody>
+    </table>
+
+    <h2>Order Table</h2>
+
+    <div id="formdivorder">
+        <label>Food</label>
+        <input type="text" , id="orderName" />
+        <label>Price</label>
+        <input type="text" , id="orderPrice" />
+        <button type="button" onclick="createOrder()">Add order</button>
+        <label>Order ID</label>
+        <input type="text" , id="orderId" />
+        <label id="consumernamefromorder"></label>
+        <button type="button" onclick="getConsumerNameFromOrder()">Get consumer`s name</button>
+        <label id="consumeraddressfromorder"></label>
+        <button type="button" onclick="getConsumerAddressFromOrder()">Get consumer`s address</button>
+    </div>
+
+    <div id="updateformdivorder">
+        <label>Order Name</label>
+        <input type="text" , id="ordernametoupdate" />
+        <label>Order Price</label>
+        <input type="text", id="orderpricetoupdate"/>
+        <button type="button" onclick="updateOrder()">Update order</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name: Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="resultareaorder">
+        </tbody>
+    </table>
+
+    <h3>Restaurant Table</h3>
+
+    <div id="formdivrestaurant">
+        <label>Restaurant Name</label>
+        <input type="text" , id="restaurantName" />
+        <label>Restaurant Cuisine</label>
+        <input type="text" , id="restaurantCuisine" />
+        <label>Restaurant Location</label>
+        <input type="text" , id="restaurantLocation" />
+        <button type="button" onclick="createRestaurant()">Add Restaurant</button>
+        <label>Consumer With Most Orders</label>
+        <label id="consumerwithmostorders"></label>
+        <button type="button" onclick="getConsumerWithMostOrders()">Get consumer`s name</button>
+    </div>
+
+    <div id="updateformdivrestaurant">
+        <label>Restaurant Name</label>
+        <input type="text" , id="restaurantnametoupdate" />
+        <label>Location</label>
+        <input type="text", id="restaurantlocationtoupdate" />
+        <label>Cuisine</label>
+        <input type="text", id="restaurantcuisinetoupdate" />
+        <button type="button" onclick="updateRestaurant()">Update Restaurant</button>
+        <button type="button" onclick="updateRestaurantLocation()">Update Location</button>
+        <button type="button" onclick="updateRestaurantCuisine()">Update Cuisine</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="resultarearestaurant">
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>

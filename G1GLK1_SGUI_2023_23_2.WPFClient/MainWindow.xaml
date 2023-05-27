@@ -1,0 +1,147 @@
+﻿<Window x:Class="G1GLK1_SGUI_2023_23_2.WPFClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:G1GLK1_SGUI_2023_23_2.WPFClient"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1200">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+    <TabControl>
+        <TabItem Header="Consumers">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="91*"/>
+                    <ColumnDefinition Width="307*"/>
+                    <ColumnDefinition Width="398*"/>
+                    <ColumnDefinition Width="398*"/>
+                </Grid.ColumnDefinitions>
+                <ListBox ItemsSource="{Binding Consumers}" SelectedItem="{Binding SelectedConsumer}" Grid.ColumnSpan="2">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Label Content="{Binding Name}" />
+                                <Label Content="{Binding ConsumerId}"/>
+                                <Label Content="{Binding Address}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <StackPanel Grid.Column="2" >
+                    <Label Content="Name" Background="LightBlue" Padding="10" />
+                    <TextBox Text="{Binding SelectedConsumer.Name}" Padding="10" Margin="0,0,0,30" />
+                    <Label Content="ID" Background="LightBlue" Padding="10" />
+                    <TextBox Text="{Binding SelectedConsumer.ConsumerId}" Padding="10" Margin="0,0,0,30" />
+                    <Label Content="Address" Background="LightBlue" Padding="10" />
+                    <TextBox Text="{Binding SelectedConsumer.Address}" Padding="10" Margin="0,0,0,30" />
+                    <Button Content="Create Consumer" Command="{Binding CreateConsumerCommand}" Margin="10" Padding="10" />
+                    <Button Content="Delete Consumer" Command="{Binding DeleteConsumerCommand}" Margin="10" Padding="10" />
+                    <Button Content="Update Consumer name" Command="{Binding UpdateConsumerNameCommand}" Margin="10" Padding="10" />
+                    <Button Content="Update Consumer address" Command="{Binding UpdateConsumerAddressCommand}" Margin="10" Padding="10" />
+                    <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
+                </StackPanel>
+                <StackPanel Grid.Column="3">
+                    <Label Content="Consumer`s most often ordered food" Background="LightBlue" Padding="10" ></Label>
+                    <TextBox Text="{Binding MostOftenOrderedFood}" Padding="10" Margin="0,0,0,30"></TextBox>
+                    <Button Content="Get Consumer`s Most Often Ordered Food" Command="{Binding GetMostOftenOrderedFoodFromCustomer}" Margin="10" Padding="10"></Button>
+                    <Label Content="Consumer`s most orders from restaurant" Background="LightBlue" Padding="10" ></Label>
+                    <TextBox Text="{Binding MostOrdersFromRestaurantByConsumer}" Padding="10" Margin="0,0,0,30"></TextBox>
+                    <Button Content="Get Consumer`s Most Orders From Restaurant" Command="{Binding GetMostOrdersFromRestaurantByConsumer}" Margin="10" Padding="10"></Button>
+                </StackPanel>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Orders">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <ListBox ItemsSource="{Binding Orders}" SelectedItem="{Binding SelectedOrder}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Label Content="{Binding OrderId}" />
+                                <Label Content="{Binding TimeOfOrder}"/>
+                                <Label Content="{Binding Food}"/>
+                                <Label Content="{Binding Price}"/>
+                                <Label Content="{Binding RestaurantId}"/>
+                                <Label Content="{Binding ConsumerId}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <StackPanel Grid.Column="1" >
+                    <Label Content="Food" Background="LightBlue" Padding="10" />
+                    <TextBox Text="{Binding SelectedOrder.Food}" Padding="10" />
+                    <Label Content="ID" Background="LightBlue" Padding="10" />
+                    <TextBox Text="{Binding SelectedOrder.OrderId}" Padding="10"/>
+                    <Label Content="Time of Order" Background="LightBlue" Padding="10" />
+                    <TextBox Text="{Binding SelectedOrder.TimeOfOrder}" Padding="10"/>
+                    <Label Content="Price" Background="LightBlue" Padding="10" />
+                    <TextBox Text="{Binding SelectedOrder.Price}" Padding="10" />
+                    <Label Content="Restaurant ID" Background="LightBlue" Padding="10" />
+                    <TextBox Text="{Binding SelectedOrder.RestaurantId}" Padding="10"/>
+                    <Label Content="Consumer ID" Background="LightBlue" Padding="10" />
+                    <TextBox Text="{Binding SelectedOrder.ConsumerId}" Padding="10" />
+                    <Button Content="Create Order" Command="{Binding CreateOrderCommand}" Margin="10" Padding="10" />
+                    <Button Content="Delete Order" Command="{Binding DeleteOrderCommand}" Margin="10" Padding="10" />
+                    <Button Content="Update Order" Command="{Binding UpdateOrderCommand}" Margin="10" Padding="10" />
+                    <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
+                </StackPanel>
+                <StackPanel Grid.Column="2">
+                    <Label Content="Consumer`s Name" Background="LightBlue" Padding="10" ></Label>
+                    <TextBox Text="{Binding ConsumerName}" Padding="10" Margin="0,0,0,30"></TextBox>
+                    <Button Content="Get Consumer`s Name From Order" Command="{Binding GetConsumerNameFromOrder}" Margin="10" Padding="10"></Button>
+                    <Label Content="Consumer`s Address" Background="LightBlue" Padding="10" ></Label>
+                    <TextBox Text="{Binding ConsumerAddress}" Padding="10" Margin="0,0,0,30"></TextBox>
+                    <Button Content="Get Consumer`s Address From Order" Command="{Binding GetConsumerAddressFromOrder}" Margin="10" Padding="10"></Button>
+                </StackPanel>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Restaurants">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <ListBox ItemsSource="{Binding Restaurants}" SelectedItem="{Binding SelectedRestaurant}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Label Content="{Binding Name}" />
+                                <Label Content="{Binding Location}"/>
+                                <Label Content="{Binding Cuisine}"/>
+                                <Label Content="{Binding RestaurantId}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <StackPanel Grid.Column="1" >
+                    <Label Content="Name" Background="LightBlue" Padding="10" />
+                    <TextBox Text="{Binding SelectedRestaurant.Name}" Padding="10" Margin="0,0,0,30" />
+                    <Label Content="ID" Background="LightBlue" Padding="10" />
+                    <TextBox Text="{Binding SelectedRestaurant.RestaurantId}" Padding="10" Margin="0,0,0,30" />
+                    <Label Content="Location" Background="LightBlue" Padding="10" />
+                    <TextBox Text="{Binding SelectedRestaurant.Location}" Padding="10" Margin="0,0,0,30" />
+                    <Label Content="Cuisine" Background="LightBlue" Padding="10" />
+                    <TextBox Text="{Binding SelectedRestaurant.Cuisine}" Padding="10" Margin="0,0,0,30" />
+                    <Button Content="Create Restaurant" Command="{Binding CreateRestaurantCommand}" Margin="10" Padding="10" />
+                    <Button Content="Delete Restaurant" Command="{Binding DeleteRestaurantCommand}" Margin="10" Padding="10" />
+                    <Button Content="Update Restaurant name" Command="{Binding UpdateRestaurantNameCommand}" Margin="10" Padding="10" />
+                    <Button Content="Update Restaurant Location" Command="{Binding UpdateRestaurantLocationCommand}" Margin="10" Padding="10" />
+                    <Button Content="Update Restaurant Cuisine" Command="{Binding UpdateRestaurantCuisineCommand}" Margin="10" Padding="10" />
+                    <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
+                </StackPanel>
+                <StackPanel Grid.Column="2">
+                    <Label Content="Consumer with most Orders" Background="LightBlue" Padding="10" ></Label>
+                    <TextBox Text="{Binding ConsumerWithMostOrders}"></TextBox>
+                    <Button Content="Get Consumer with most orders" Command="{Binding GetConsumerWithMostOrders}" Margin="10" Padding="10"></Button>
+                </StackPanel>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>
